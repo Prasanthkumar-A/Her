@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For The One I Love ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI", sans-serif;
+    background:#09020a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ==============================
+   LOADING SCREEN
+================================ */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#09020a;
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transition:1s;
+}
+
+.loader-heart{
+    font-size:80px;
+    animation:beat 1s infinite;
+}
+
+#loader p{
+    margin-top:20px;
+    letter-spacing:3px;
+    color:#ffb6c9;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.25);}
+}
+
+/* ==============================
+   HERO
+================================ */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    background:
+        linear-gradient(rgba(10,0,10,.55),rgba(10,0,10,.85)),
+        url("photo1.jpg") center/cover;
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    padding:30px;
+}
+
+.small-title{
+    letter-spacing:6px;
+    text-transform:uppercase;
+    color:#ffb3c7;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:clamp(55px,10vw,110px);
+    margin:15px 0;
+    font-family:Georgia,serif;
+    background:linear-gradient(90deg,#fff,#ff9db8,#fff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    font-size:20px;
+    color:#eee;
+    max-width:600px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.start-btn{
+    margin-top:35px;
+    display:inline-block;
+    padding:15px 35px;
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:50px;
+    color:white;
+    text-decoration:none;
+    transition:.4s;
+    backdrop-filter:blur(10px);
+}
+
+.start-btn:hover{
+    background:#ff477e;
+    border-color:#ff477e;
+    transform:scale(1.08);
+}
+
+/* ==============================
+   PARTICLES
+================================ */
+
+.particle{
+    position:fixed;
+    bottom:-30px;
+    pointer-events:none;
+    animation:float linear forwards;
+    z-index:2;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    20%{opacity:.8;}
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ==============================
+   SECTIONS
+================================ */
+
+section{
+    padding:110px 8%;
+    position:relative;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title span{
+    color:#ff759c;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:12px;
+}
+
+.section-title h2{
+    font-family:Georgia,serif;
+    font-size:clamp(35px,5vw,60px);
+    margin-top:12px;
+}
+
+/* ==============================
+   PHOTO MEMORIES
+================================ */
+
+.memories{
+    background:
+        radial-gradient(circle at top,#351225,#09020a 60%);
+}
+
+.gallery{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    gap:18px;
+}
+
+.photo{
+    overflow:hidden;
+    border-radius:20px;
+    position:relative;
+    min-height:280px;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+.photo:nth-child(1){
+    grid-column:span 7;
+}
+
+.photo:nth-child(2){
+    grid-column:span 5;
+}
+
+.photo:nth-child(3){
+    grid-column:span 5;
+}
+
+.photo:nth-child(4){
+    grid-column:span 7;
+}
+
+.photo:nth-child(5){
+    grid-column:span 12;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    min-height:280px;
+    object-fit:cover;
+    transition:.7s;
+}
+
+.photo:hover img{
+    transform:scale(1.08);
+}
+
+.photo-caption{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:35px 20px 20px;
+    background:linear-gradient(transparent,rgba(0,0,0,.85));
+    font-size:18px;
+}
+
+/* ==============================
+   STORY
+================================ */
+
+.story{
+    background:#0d030b;
+}
+
+.timeline{
+    max-width:850px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:linear-gradient(#ff477e,transparent);
+}
+
+.story-card{
+    width:45%;
+    padding:25px;
+    margin:40px 0;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(15px);
+}
+
+.story-card:nth-child(even){
+    margin-left:55%;
+}
+
+.story-card h3{
+    color:#ff83a4;
+    margin-bottom:10px;
+}
+
+.story-card p{
+    color:#ddd;
+    line-height:1.8;
+}
+
+/* ==============================
+   APOLOGY
+================================ */
+
+.apology{
+    background:
+        linear-gradient(rgba(10,0,8,.88),rgba(10,0,8,.95)),
+        url("photo3.jpg") center/cover fixed;
+}
+
+.letter{
+    max-width:800px;
+    margin:auto;
+    padding:60px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    backdrop-filter:blur(20px);
+    box-shadow:0 30px 80px rgba(0,0,0,.4);
+}
+
+.letter h2{
+    font-family:Georgia,serif;
+    font-size:40px;
+    color:#ff9fba;
+    margin-bottom:30px;
+}
+
+.letter p{
+    color:#eee;
+    line-height:2;
+    font-size:17px;
+    margin-bottom:20px;
+}
+
+.highlight{
+    color:#ff8eaa;
+    font-weight:bold;
+}
+
+/* ==============================
+   FORGIVENESS
+================================ */
+
+.forgive{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle,#4a1429,#09020a 70%);
+}
+
+.forgive-box{
+    max-width:700px;
+}
+
+.forgive-box h2{
+    font-family:Georgia,serif;
+    font-size:clamp(40px,7vw,75px);
+    margin-bottom:25px;
+}
+
+.forgive-box p{
+    color:#ccc;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.buttons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    padding:15px 35px;
+    border-radius:50px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.yes{
+    background:#ff477e;
+    color:white;
+}
+
+.yes:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 30px #ff477e;
+}
+
+.notyet{
+    background:#222;
+    color:#aaa;
+}
+
+/* ==============================
+   FINAL SURPRISE
+================================ */
+
+#surprise{
+    display:none;
+    margin-top:50px;
+    animation:reveal 1s ease;
+}
+
+#surprise h3{
+    font-family:Georgia,serif;
+    font-size:40px;
+    color:#ff9db8;
+    margin-bottom:20px;
+}
+
+#surprise p{
+    font-size:20px;
+}
+
+@keyframes reveal{
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* ==============================
+   FOOTER
+================================ */
+
+footer{
+    padding:35px;
+    text-align:center;
+    background:#050105;
+    color:#777;
+}
+
+footer span{
+    color:#ff6f96;
+}
+
+/* ==============================
+   MUSIC BUTTON
+================================ */
+
+.music{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:none;
+    background:#ff477e;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    z-index:100;
+    box-shadow:0 5px 20px rgba(255,71,126,.5);
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media(max-width:700px){
+
+    section{
+        padding:80px 5%;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .gallery{
+        display:grid;
+        grid-template-columns:1fr;
+    }
+
+    .photo:nth-child(n){
+        grid-column:span 1;
+    }
+
+    .photo,
+    .photo img{
+        min-height:300px;
+    }
+
+    .timeline::before{
+        left:10px;
+    }
+
+    .story-card,
+    .story-card:nth-child(even){
+        width:calc(100% - 35px);
+        margin-left:35px;
+    }
+
+    .letter{
+        padding:30px 22px;
+    }
+
+    .letter h2{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- LOADING SCREEN -->
+
+<div id="loader">
+    <div class="loader-heart">❤️</div>
+    <p>Something from my heart...</p>
+</div>
+
+
+<!-- MUSIC -->
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" onclick="toggleMusic()">♫</button>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            A little something for you
+        </div>
+
+        <h1>I'm Sorry.</h1>
+
+        <p>
+            Before you read anything else...
+            I just want you to know that
+            you mean more to me than my ego ever will.
+        </p>
+
+        <a href="#memories" class="start-btn">
+            Come with me ❤️
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- MEMORIES -->
+
+<section class="memories" id="memories">
+
+    <div class="section-title">
+
+        <span>Our memories</span>
+
+        <h2>Look what we've created ❤️</h2>
+
+    </div>
+
+
+    <div class="gallery">
+
+        <div class="photo">
+            <img src="IMG_20260610_131156.jpg">
+            <div class="photo-caption">
+                One of my favourite memories of us ❤️
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG-20260819-WA0050~2.jpg">
+            <div class="photo-caption">
+                That smile...
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG-20260525-WA0005.jpg">
+            <div class="photo-caption">
+                A moment I'll always remember.
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG_20260905_162357.jpg">
+            <div class="photo-caption">
+                Us being us ❤️
+            </div>
+        </div>
+
+        <div class="photo">
+            <img src="IMG_20260828_114825.jpg">
+            <div class="photo-caption">
+                And hopefully... many more memories to come.
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section class="story">
+
+    <div class="section-title">
+
+        <span>Our little story</span>
+
+        <h2>Some things are worth protecting.🤌</h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="story-card">
+
+            <h3>Then ❤️</h3>
+
+            <p>
+                Somewhere along the way, you became someone
+                incredibly important to me.😘
+            </p>
+
+        </div>
+
+
+        <div class="story-card">
+
+            <h3>All those moments ✨</h3>
+
+            <p>
+                The random conversations, stupid jokes,
+                smiles, arguments, laughs and memories...
+                I wouldn't trade them for anything.
+            </p>
+
+        </div>
+
+
+        <div class="story-card">
+
+            <h3>Today 🥺</h3>
+
+            <p>
+                I made a mistake. And instead of pretending
+                it didn't matter, I want to admit that
+                I was wrong.🤧
+            </p>
+
+        </div>
+
+
+        <div class="story-card">
+
+            <h3>Tomorrow ❤️</h3>
+
+            <p>
+                I don't promise that I'll suddenly become
+                perfect. But I promise that I'll try harder
+                to understand, listen and care.🥰
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- APOLOGY LETTER -->
+
+<section class="apology">
+
+    <div class="section-title">
+
+        <span>From my heart</span>
+
+        <h2>A letter for you Nisha/Nila/Poona/Cutie</h2>
+
+    </div>
+
+
+    <div class="letter">
+
+        <h2>My Dear Love, ❤️</h2>
+
+        <p>
+            I know you're angry with me, and honestly,
+            I understand why.
+        </p>
+
+        <p>
+            I'm not writing this to make excuses.
+            I'm writing because I want you to know
+            that <span class="highlight">I'm genuinely sorry.🤧</span>
+        </p>
+
+        <p>
+            If I could go back to that moment,
+            I would choose my words differently.
+            I would listen instead of reacting.
+            I would think about how you would feel.
+        </p>
+
+        <p>
+            You deserve to feel loved, respected,
+            appreciated and safe with me.🥺
+        </p>
+
+        <p>
+            And even though I can't change what happened,
+            I can change what I do next.☺️
+        </p>
+
+        <p>
+            So this isn't just me saying
+            <span class="highlight">"sorry."</span>
+        </p>
+
+        <p>
+            It's me saying:
+            <br><br>
+
+            <span class="highlight">
+                I'm sorry for hurting you.<br>
+                I'm sorry for making you upset.<br>
+                I'm sorry for not thinking enough about your feelings.<br>
+                And I'm sorry for giving you a reason to be angry with me.🤧
+            </span>
+        </p>
+
+        <p>
+            I hope one day this moment becomes just
+            another little chapter in our story,
+            rather than the ending of it.
+        </p>
+
+        <p>
+            Because I still want more memories with you.
+            More laughs. More stupid jokes.
+            More photographs. More everything.🥺
+        </p>
+
+        <p>
+            <strong>
+                I'm really, really sorry. ❤️
+            </strong>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FORGIVENESS -->
+
+<section class="forgive">
+
+    <div class="forgive-box">
+
+        <div style="font-size:70px;">
+            🥺❤️
+        </div>
+
+        <h2>
+            Can I have<br>
+            one more chance?🥺
+        </h2>
+
+        <p>
+            You don't have to forget everything immediately.
+            You don't even have to stop being angry immediately.
+        </p>
+
+        <p>
+            I just hope somewhere in your heart,
+            there is still a tiny little space for me.🤧
+        </p>
+
+
+        <div class="buttons">
+
+            <button class="btn yes" onclick="forgiveMe()">
+                Okay... ❤️🥺
+            </button>
+
+            <button class="btn notyet" onclick="notYet()">
+                I'm still angry 😤
+            </button>
+
+        </div>
+
+
+        <div id="surprise">
+
+            <h3>
+                YAY! ❤️
+            </h3>
+
+            <p>
+                I promise I'll treasure that chance.
+            </p>
+
+            <br>
+
+            <p>
+                Now come here... 🫂
+            </p>
+
+            <br>
+
+            <div style="font-size:55px;">
+                ❤️ 💕 💖 💗 ❤️
+            </div>
+
+            <br>
+
+            <p>
+                <strong>
+                    I love you baby. ❤️😘
+                    Be my Forever.💞🥺♾️
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    Made with ❤️ just for
+    <span>the person who means the world to me.</span>
+
+</footer>
+
+
+<script>
+
+/* ==============================
+   LOADER
+================================ */
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        document.getElementById("loader").style.opacity="0";
+
+        setTimeout(function(){
+
+            document.getElementById("loader").style.display="none";
+
+        },1000);
+
+    },1800);
+
+});
+
+
+/* ==============================
+   FLOATING HEARTS
+================================ */
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="particle";
+
+    const hearts=["❤️","💗","💕","💖","✨","💓"];
+
+    heart.innerHTML=
+        hearts[Math.floor(Math.random()*hearts.length)];
+
+    heart.style.left=Math.random()*100+"%";
+
+    heart.style.fontSize=
+        (15+Math.random()*25)+"px";
+
+    heart.style.animationDuration=
+        (5+Math.random()*7)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+
+        heart.remove();
+
+    },12000);
+
+}
+
+setInterval(createHeart,500);
+
+
+/* ==============================
+   MUSIC
+================================ */
+
+let playing=false;
+
+function toggleMusic(){
+
+    const music=document.getElementById("music");
+
+    if(!playing){
+
+        music.play();
+
+        playing=true;
+
+    }else{
+
+        music.pause();
+
+        playing=false;
+
+    }
+
+}
+
+
+/* ==============================
+   FORGIVENESS
+================================ */
+
+function forgiveMe(){
+
+    const surprise=document.getElementById("surprise");
+
+    surprise.style.display="block";
+
+    window.scrollTo({
+
+        top:
+        document.body.scrollHeight,
+
+        behavior:"smooth"
+
+    });
+
+    for(let i=0;i<50;i++){
+
+        setTimeout(createHeart,i*50);
+
+    }
+
+}
+
+
+/* ==============================
+   STILL ANGRY
+================================ */
+
+function notYet(){
+
+    const button=document.querySelector(".notyet");
+
+    button.innerHTML=
+        "Okay... I'll wait ❤️";
+
+    button.style.transform="scale(.95)";
+
+}
+
+</script>
+
+</body>
+</html>
